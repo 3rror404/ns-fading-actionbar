@@ -1,0 +1,14 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" backgroundSpanUnderStatusBar="true">
+
+<Page.actionBar>
+	<ActionBar title="Page two">
+        <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
+    </ActionBar>
+</Page.actionBar>
+
+<ScrollView id="scrollView" style="margin-top: -64">
+    <StackLayout style="height: 800">
+        <Image src="~/img/enjoying-a-tasty-burger-picjumbo-com.jpg" />
+    </StackLayout>
+</ScrollView>
+</Page>

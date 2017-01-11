@@ -1,0 +1,9 @@
+.idea
+/*.js
+/*.js.map
+*.log
+platforms
+node_modules
+lib
+node_modules
+.DS_Store
