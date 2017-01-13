@@ -2,13 +2,15 @@
 
 <Page.actionBar>
 	<ActionBar title="Page two">
-        <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
+        <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="tapGoBack"/>
     </ActionBar>
 </Page.actionBar>
 
-<ScrollView id="scrollView" style="margin-top: -64">
+<ScrollView id="scrollView" style="margin-top: -64" backgroundColor="salmon">
+    
     <StackLayout style="height: 800">
         <Image src="~/img/enjoying-a-tasty-burger-picjumbo-com.jpg" />
     </StackLayout>
+
 </ScrollView>
 </Page>
