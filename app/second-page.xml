@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" backgroundSpanUnderStatusBar="true">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" navigatedFrom="navigatedFrom" backgroundSpanUnderStatusBar="true">
 
 <Page.actionBar>
 	<ActionBar title="Page two">

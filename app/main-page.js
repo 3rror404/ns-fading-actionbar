@@ -2,24 +2,35 @@ var frameModule = require("ui/frame");
 
 function onNavigatingTo(args) {
 
+}
+exports.onNavigatingTo = onNavigatingTo;
+
+function onNavigatedTo(args) {
+
+	/**
+	 * ## Moved to navigatedTo
+	 * If subpage scrollView is still scrolling when navigating back
+	 * the animation will not take place 
+	 */
     var page = args.object;
 
     if (page.ios) {
 		var controller = frameModule.topmost().ios.controller;
 
-		/**
-		 * Return actionbar to default after being transaprent
-		 */
-		// var navBar = controller.navigationBar;
-		// navBar.setBackgroundImageForBarMetrics(null, UIBarMetricsDefault);
-        // navBar.shadowImage = null;
+		var navBar = controller.navigationBar;
+		navBar.shadowImage = new UIImage();
+		
+		if (navBar.viewWithTag(17) !== null) {
+			var myView = navBar.viewWithTag(17);
 
-        // //navBar.translucent = false;
-		// navBar.barTintColor = null;
+			UIView.animateWithDurationAnimations(0.3, () => {
+				myView.backgroundColor = UIColor.colorWithRedGreenBlueAlpha(1, 0.20, 0.20, 1);
+			});	
 
+		}
 	}
 }
-exports.onNavigatingTo = onNavigatingTo;
+exports.onNavigatedTo = onNavigatedTo;
 
 exports.onTap = function() {
     frameModule.topmost().navigate("second-page");
