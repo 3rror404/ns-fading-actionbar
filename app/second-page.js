@@ -3,6 +3,8 @@ var animation = require("ui/animation");
 var colorModule = require("color");
 var Color = colorModule.Color;
 
+var allowActionBarAnimation = true;
+
 exports.pageLoaded = function(args) {
     var page = args.object;
 
@@ -14,8 +16,6 @@ exports.pageLoaded = function(args) {
 		 * Make ActionBar background transparent
 		 */
 		var navBar = controller.navigationBar;
-		navBar.shadowImage = new UIImage();
-		navBar.setBackgroundImageForBarMetrics(new UIImage, UIBarMetrics.UIBarMetricsDefault);
 
 		/**
 		 * Add custom view to navBar - if doesn't exist
@@ -47,29 +47,26 @@ exports.pageLoaded = function(args) {
 		/**
 		 * Fade in myView on scroll
 		 */
+		allowActionBarAnimation = true;
 		var scrollView = page.getViewById("scrollView");
 		scrollView.on('scroll', function(args){
-			var offset = args.object.verticalOffset;
-			myView.backgroundColor = UIColor.colorWithRedGreenBlueAlpha(0.20, 0.20, 0.20, (offset-50)/50);
+			console.log('allowActionBarAnimation ' + allowActionBarAnimation)
+			if (allowActionBarAnimation == true) {
+				var offset = args.object.verticalOffset;
+				myView.backgroundColor = UIColor.colorWithRedGreenBlueAlpha(0.20, 0.20, 0.20, (offset-50)/50);
+			}			
 		});
 
 	}
 	
 }
 
-exports.navigatedFrom = function(args) {
-	// var page = args.object;
+exports.navigatingFrom = function(args) {
+	/**
+	 * ## IMPORTANT: Stop color animation before nav back
+	 */
+	allowActionBarAnimation = false;
 
-    // if (page.ios) {
-	// 	var controller = frameModule.topmost().ios.controller;
-
-	// 	var navBar = controller.navigationBar;
-	// 	var myView = navBar.viewWithTag(17);
-
-	// 	UIView.animateWithDurationAnimations(0.3, () => {
-	// 		myView.backgroundColor = UIColor.colorWithRedGreenBlueAlpha(1, 0.20, 0.20, 1);
-	// 	});	
-	// }
 }
 
 exports.tapGoBack = function() {

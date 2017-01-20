@@ -19,6 +19,6 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import 'nativescript-theme-core/css/core.light.css';
 
-/*ActionBar {
-    background-color: red;
-}*/
+ActionBar {
+    color: #FFF;
+}
