@@ -50,7 +50,6 @@ exports.pageLoaded = function(args) {
 		allowActionBarAnimation = true;
 		var scrollView = page.getViewById("scrollView");
 		scrollView.on('scroll', function(args){
-			console.log('allowActionBarAnimation ' + allowActionBarAnimation)
 			if (allowActionBarAnimation == true) {
 				var offset = args.object.verticalOffset;
 				myView.backgroundColor = UIColor.colorWithRedGreenBlueAlpha(0.20, 0.20, 0.20, (offset-50)/50);
