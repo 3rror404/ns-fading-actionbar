@@ -1,4 +1,4 @@
-# A NativeScript actionbar that fades from transparent to opaque on scroll
+## A NativeScript ActionBar that fades from transparent to opaque on scroll
 ---
 iOS only.
 
