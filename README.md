@@ -1,4 +1,5 @@
-# TODO
+# A NativeScript actionbar that fades from transparent to opaque on scroll
 ---
-- [ ] Reset actionbar to default state on back navigation
-- [ ] Possible to transition shadowImage ?
+iOS only.
+
+<img src="https://github.com/3rror404/ns-fading-actionbar/blob/master/_github_resources/out.gif?raw=true">
